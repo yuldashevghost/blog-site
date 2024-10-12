@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <h1>Xojimuhammad</h1>
+                <div class="burger-menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+                    <li><a href="{% url 'about' %}">Men Haqimda</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'posts' %}">Postlar</a></li>
+                    <li><a class="btn" href="">{{ user.username }}</a></li>
+                    <li><a class="btn" href="{% url 'logout' %}">Chiqish</a></li>
+                    {% else %}
+                    <li><a class="btn" href="{% url 'login' %}">Kirish</a></li>
+                    <li><a class="btn" href="{% url 'register' %}">Ro'yhatdan o'tish</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% for message in messages %}
+            <h1>{{ message }}</h1>
+            {% endfor %}
+        </header>
+    {% block content %}
+        
+    {% endblock %}
+    <footer>
+            <ul>
+                <li><a href=""><i class='bx bxs-phone-call' ></i>   +998 93 295 00 34</a></li>
+                <li><a href="https://t.me/Xojimuhammad_Yuldashev"><i class='bx bxl-telegram'></i>  t.me/Xojimuhammad_Yuldashev</a></li>
+                <li><a href="https://www.instagram.com/xojimuhammad_yuldashev/"><i class='bx bxl-instagram' ></i> @xojimuhammad_yuldashev</a></li>
+                <li><a href=""><i class='bx bxl-gmail' ></i>    xojimuhammadyuldashev207@gmail.com</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+About me
+{% endblock %}
+{% block content %}
+<div class="about-main">    
+<div class="intro">
+    <h1>Men Haqimda</h1><br>
+    <p>Men Xojimuhammad Yuldashev, Andijon viloyati Asaka tumani Mirzaobod mahallasida tug'ilganaman.
+    2013-yildan 2024-yilgacha Asaka tumanidagi 23-maktabda o'qiganman. Hozirda Fan va texnalogiya Universitetida
+    dasturiy injiniring yo'nalishida o'qiyaman. Asosiy soham Backend dasturlash. Backend Dasturlashni 
+        Najot ta'lim Hadra filyalida o'rganganman. Ingliz tilini upper-intermediate darajada bilaman IELTS balim 5.5.
+    Qiziqishlarim kitob o'qish, shaxmat o'ynash va zakovatga qatnashish.</p>
+</div>
+<div class="rasm">
+    <img src="{% static 'assets/img/xojim.jpg' %}" alt="rasm">
+</div>
+</div>
+{% endblock %}

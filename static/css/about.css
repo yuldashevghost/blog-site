@@ -1,0 +1,49 @@
+.about-main {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-main .intro {
+    width: 800px;
+}
+
+.about-main .rasm img {
+    width: 350px;
+}
+
+
+@media (max-width: 1024px) {
+    .about-main {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-main .intro {
+        width: 90%;
+    }
+
+    .about-main .rasm img {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .about-main {
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    .about-main .intro {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-main .rasm img {
+        width: 250px;
+    }
+}

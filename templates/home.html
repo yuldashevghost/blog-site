@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}
+Home
+{% endblock %}
+{% block content %}
+        
+        <main>
+            <div class="home_main">
+                <div class="text">
+                    <p>Salom men Xojimuhammad bu saytda men kitoblardan iqtiboslar, insaytar, It sohasi haqida qiziqarli ma'lumotlar va Mashxur insonlardan iqtiboslarni joylab boraman.</p>
+                    <br>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'posts' %}">Postlar</a>
+                    {% else %}
+                    <a href="{% url 'login' %}">Kirish</a>
+                    {% endif %}
+                </div>
+                <div class="cover">
+                    <img src="{% static 'assets/img/men.jpg' %}" alt="">
+                </div>
+            </div>
+        </main>
+{% endblock %}

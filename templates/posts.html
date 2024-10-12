@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block content %}
+
+    <main class="home_main">
+        <section class="posts">
+            {% for post in posts %}
+                <div class="post-card">
+                    <img src="{{ post.cover_image.url }}" alt="Post Image">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|truncatewords:20 }}</p>
+                    <a href="{% url 'post-detail' post.pk %}">Read More</a>
+                </div>
+                 {% empty %}
+                    <li>No posts available.</li>
+            {% endfor %}
+            {% if user.is_authenticated and user.is_superuser %}
+                <a href="{% url 'post_create' %}">create</a>
+
+            {% endif %}
+
+           
+
+        </section>
+    </main>
+    
+     <div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+            </div>
+
+{% endblock %}
